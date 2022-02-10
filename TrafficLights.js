@@ -4,13 +4,15 @@ import React, { Fragment, useEffect } from 'react';
 import { GREEN_COLOR, RED_COLOR, YELLOW_COLOR } from './constants';
 import { BlackCircle, GreenCircle, RedCircle, YellowCircle } from './Circle';
 
+const PATH = document.location.pathname;
+
 export function TrafficLights({ schedule }) {
     const navigate = useNavigate();
 
     const color = useColorSwitcher(schedule);
 
     useEffect(() => {
-        color && navigate(`${ document.location.pathname }/${ color }`, { replace: true });
+        color && navigate(`${ PATH }/${ color }`, { replace: true });
     }, [ color ]);
 
     return (
